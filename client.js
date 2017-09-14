@@ -61,6 +61,28 @@ $(function(){
     .fail(handleError);
   });
 
+  $('#btUpdateToken').click(function(){
+    const authToken = getSavedToken();
+
+    $.ajax({
+      method: "PUT",
+      url: "http://localhost:5000/api/token",
+      headers: {
+        "Authorization": "Bearer " + authToken,
+        "Accepts": "application/json"
+      }
+    })
+    .done(function(newToken){ 
+      localStorage.setItem("token", newToken);
+      $('#btLoginContainer').hide();
+      $('#btLogoutContainer').show();
+      var message = "<p>Token received and saved in local storage under the key 'token'</p>";
+      message += "<p>Token Value: </p><p style='word-wrap:break-word'>" + newToken + "</p>";
+      $('#responseContainer').html(message);
+    })
+    .fail(handleError);
+  });
+
 
   if (isUserLoggedIn()){ 
       $('#btLoginContainer').hide();
