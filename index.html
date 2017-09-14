@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Web Api JWT Example</title>
+    <script  src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+      <style>
+          div {
+              margin-top: 50px;
+          }
+      </style>
+  </head>
+  <body>
+      <h1>Example of using JWT to secure an Web Api using ASP.NET Core 2.0</h1>
+      <div style="margin: 50px auto; width:600px;">
+          <div id="btLoginContainer">
+            <input type="text" name="username" id="username" placeholder="Username"/>
+            <input type="password" name="password" id="password" placeholder="Password"/>
+            <button id="btLogin">Login</button><br>   
+            <label>(Use the same password as the username to sign in)</label>                     
+          </div>
+          <div id="btLogoutContainer">
+              <button id="btLogout">Logout</button>
+          </div>
+          <div>
+            <label>Action that requires the user to be authenticated: </label><button id="btGetUserDetails">Get User Details</button>
+          </div>          
+
+      </div>
+      <div style="margin: 50px; background: lightgray" id="responseContainer">
+          
+      </div>
+      
+      <script src="./client.js"></script>
+  </body>
+</html>
